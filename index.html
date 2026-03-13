@@ -3,977 +3,581 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alphiosjunior Ngqele | Portfolio</title>
+  <title>Alphiosjunior Iviwe Ngqele | Cloud &amp; DevOps Engineer</title>
+  <meta name="description" content="Computer Engineering graduate specialising in cloud infrastructure, DevOps automation, and AI-powered systems. Based in South Africa." />
+  <meta property="og:title" content="Alphiosjunior Iviwe Ngqele | Cloud &amp; DevOps Engineer" />
+  <meta property="og:description" content="I build real things — serverless APIs, AI-powered apps, cloud infrastructure, and CI/CD pipelines that solve actual problems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alphiosjunior.github.io/portfolio2.0/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-
     :root {
-      --primary: #4f46e5;
-      --primary-dark: #4338ca;
-      --secondary: #6366f1;
-      --bg-light: #f9fafb;
-      --bg-dark: #111827;
-      --text-light: #1f2937;
-      --text-dark: #f9fafb;
-      --card-light: #ffffff;
-      --card-dark: #1f2937;
-      --border-light: #e5e7eb;
-      --border-dark: #374151;
+      --accent: #00E5A0;
+      --accent-dim: rgba(0,229,160,0.1);
+      --accent-border: rgba(0,229,160,0.25);
+      --bg: #0D0E10;
+      --bg2: #141618;
+      --bg3: #1A1C20;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.13);
+      --t1: #EFEFED;
+      --t2: #8A8B89;
+      --t3: #4A4B49;
+      --r: 12px;
+      --rl: 18px;
+      --fh: 'Syne', sans-serif;
+      --fb: 'DM Sans', sans-serif;
     }
-
-    html, body {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #1e293b 50%, #312e81 75%, #1e3a8a 100%) fixed;
-      color: #f9fafb;
-      line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
+    .light {
+      --accent: #00A870;
+      --accent-dim: rgba(0,168,112,0.1);
+      --accent-border: rgba(0,168,112,0.25);
+      --bg: #F4F4F2;
+      --bg2: #EAEAE8;
+      --bg3: #DFDEDD;
+      --border: rgba(0,0,0,0.07);
+      --border2: rgba(0,0,0,0.13);
+      --t1: #111110;
+      --t2: #5A5B59;
+      --t3: #9A9B99;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(79, 70, 229, 0.12) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(30px, -30px) rotate(120deg); }
-      66% { transform: translate(-20px, 20px) rotate(240deg); }
-    }
-
-    body.light-mode {
-      background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 25%, #f5f3ff 50%, #ede9fe 75%, #e0e7ff 100%) fixed;
-      color: #1f2937;
-    }
-
-    body.light-mode::before {
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(79, 70, 229, 0.08) 0%, transparent 50%);
-    }
-
-    .navbar {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 10px 30px rgba(0,0,0,0.05);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .light-mode .navbar {
-      background: rgba(255,255,255,0.7);
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #f9fafb;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover { color: var(--primary); }
-    .nav-links a.active { color: var(--primary); font-weight: 600; }
-    .light-mode .nav-links a { color: #1f2937; }
-
-    .nav-actions { display: flex; align-items: center; gap: 1rem; }
-
-    #darkToggle {
-      background: none;
-      border: 2px solid var(--primary);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #darkToggle:hover { background: var(--primary); transform: rotate(20deg); }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--primary);
-    }
-
-    .page {
-      display: none;
-      min-height: 100vh;
-      padding-top: 80px;
-      animation: fadeIn 0.5s ease;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--bg); color: var(--t1); font-size: 16px; line-height: 1.7; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--fb); cursor: pointer; border: none; background: none; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13,14,16,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    .light .nav { background: rgba(244,244,242,0.88); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-family: var(--fh); font-weight: 700; font-size: 1.05rem; color: var(--t1); letter-spacing: -0.02em; flex-shrink: 0; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; list-style: none; gap: 2px; align-items: center; }
+    .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--t2); padding: 6px 11px; border-radius: 8px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--t1); background: var(--bg3); }
+    .nav-links a.active { color: var(--accent); background: var(--accent-dim); }
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .icon-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border2); background: var(--bg2); color: var(--t2); font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .icon-btn:hover { color: var(--t1); background: var(--bg3); }
+    .hamburger { display: none; }
+    .page { display: none; min-height: 100vh; padding-top: 65px; }
     .page.active { display: block; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      border-radius: 20px;
-      margin: 2rem;
-    }
-
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; animation: slideDown 0.8s ease; }
-    .hero p { font-size: clamp(1rem, 2vw, 1.3rem); opacity: 0.95; margin-bottom: 2rem; animation: slideUp 0.8s ease; }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    .btn {
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: none;
-      font-size: 1rem;
-    }
-
-    .btn-primary { background: white; color: var(--primary); }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-    .btn-secondary { background: transparent; color: white; border: 2px solid white; }
-    .btn-secondary:hover { background: white; color: var(--primary); }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      color: var(--primary);
-      position: relative;
-      padding-bottom: 1rem;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      border-radius: 2px;
-    }
-
-    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .about-text p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
-    .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-
-    .stat-card {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      padding: 1.5rem;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .light-mode .stat-card {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .stat-card:hover { transform: translateY(-5px); }
-    .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); }
-    .stat-label { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
-
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
-
-    .skill-card {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      padding: 1.5rem;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .light-mode .skill-card {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .skill-card:hover { transform: translateY(-8px) scale(1.05); border-color: var(--primary); box-shadow: 0 8px 25px rgba(79,70,229,0.2); }
-    .skill-card img { width: 48px; height: 48px; margin-bottom: 1rem; }
-    .skill-card span { display: block; font-weight: 600; font-size: 0.95rem; }
-
-    .edu-timeline { position: relative; padding: 2rem 0; }
-
-    .edu-item {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      padding: 2rem;
-      border-radius: 20px;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-left: 4px solid var(--primary);
-    }
-
-    .light-mode .edu-item {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-      border-left: 4px solid var(--primary);
-    }
-
-    .edu-item:hover { transform: translateX(10px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-    .edu-item h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem; }
-    .edu-item ul { list-style: none; margin-top: 1rem; }
-    .edu-item li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
-    .edu-item li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-
-    /* Projects */
-    .featured-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #f59e0b, #ef4444);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-left: 0.5rem;
-      vertical-align: middle;
-    }
-
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-
-    .project-card {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .project-card.featured {
-      border: 2px solid var(--primary);
-      box-shadow: 0 8px 32px rgba(79,70,229,0.2);
-    }
-
-    .light-mode .project-card {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .light-mode .project-card.featured {
-      border: 2px solid var(--primary);
-    }
-
-    .project-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
-
-    .project-header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      padding: 1.5rem;
-      color: white;
-    }
-
-    .project-header h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-
-    .project-body { padding: 1.5rem; }
-    .project-body p { margin-bottom: 1rem; line-height: 1.6; }
-
-    .project-story {
-      font-style: italic;
-      opacity: 0.85;
-      border-left: 3px solid var(--primary);
-      padding-left: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .tech-tag {
-      background: rgba(79,70,229,0.2);
-      color: #a5b4fc;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid rgba(79,70,229,0.3);
-    }
-
-    .light-mode .tech-tag {
-      background: rgba(79,70,229,0.1);
-      color: var(--primary);
-    }
-
-    .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-
-    .project-link {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-size: 0.9rem;
-    }
-
-    .project-link:hover { background: var(--primary-dark); transform: scale(1.05); }
-
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-
-    .cert-card {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      padding: 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .light-mode .cert-card {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .cert-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(79,70,229,0.2); }
-    .cert-card img { width: 48px; height: 48px; }
-    .cert-card a { color: inherit; text-decoration: none; font-weight: 600; flex: 1; }
-    .cert-card a:hover { color: var(--primary); }
-
-    .contact-content { max-width: 600px; margin: 0 auto; text-align: center; }
-
-    .contact-info {
-      background: rgba(31, 41, 55, 0.7);
-      backdrop-filter: blur(20px) saturate(180%);
-      padding: 2rem;
-      border-radius: 20px;
-      margin-top: 2rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .light-mode .contact-info {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .contact-item { padding: 1rem 0; font-size: 1.1rem; }
-    .contact-item a { color: var(--primary); text-decoration: none; font-weight: 600; }
-
-    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
-
-    .social-links a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .social-links a:hover { background: var(--primary-dark); transform: translateY(-3px); }
-
-    footer { background: var(--text-light); color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
-
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 64px 0; }
+    .sec-label { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .sec-title { font-family: var(--fh); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.025em; color: var(--t1); line-height: 1.15; margin-bottom: 40px; }
+    .hero { padding: 80px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 5px 12px; border-radius: 100px; margin-bottom: 24px; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
+    .hero h1 { font-family: var(--fh); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--t1); margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 1rem; color: var(--t2); line-height: 1.7; max-width: 460px; margin-bottom: 32px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent); color: #0D0E10; font-weight: 600; font-size: 0.875rem; border-radius: var(--r); border: none; cursor: pointer; transition: filter 0.2s, transform 0.2s; }
+    .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border: 1px solid var(--border2); color: var(--t1); font-weight: 500; font-size: 0.875rem; border-radius: var(--r); background: var(--bg2); cursor: pointer; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .terminal { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; }
+    .term-bar { background: var(--bg3); padding: 11px 16px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border); }
+    .tdot { width: 10px; height: 10px; border-radius: 50%; }
+    .term-title { font-family: var(--fb); font-size: 0.71rem; color: var(--t3); margin: 0 auto; }
+    .term-body { padding: 20px; font-family: 'Courier New', monospace; font-size: 0.79rem; line-height: 1.9; }
+    .tr { display: flex; gap: 8px; }
+    .tp { color: var(--accent); }
+    .tc { color: var(--t1); }
+    .to { color: var(--t2); padding-left: 16px; }
+    .ts { color: var(--accent); padding-left: 16px; }
+    .tcursor { display: inline-block; width: 8px; height: 14px; background: var(--accent); vertical-align: text-bottom; animation: blink 1.1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-text p { color: var(--t2); margin-bottom: 20px; line-height: 1.75; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; transition: border-color 0.2s; }
+    .stat-card:hover { border-color: var(--accent-border); }
+    .stat-num { font-family: var(--fh); font-size: 2.2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; line-height: 1; }
+    .stat-lbl { font-size: 0.79rem; color: var(--t2); margin-top: 4px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(142px, 1fr)); gap: 10px; }
+    .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 13px 15px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s, background 0.2s; }
+    .skill-card:hover { border-color: var(--accent-border); background: var(--accent-dim); }
+    .skill-card img { width: 26px; height: 26px; flex-shrink: 0; }
+    .skill-card span { font-size: 0.84rem; font-weight: 500; color: var(--t1); }
+    .edu-header { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); padding: 22px; margin-bottom: 16px; display: flex; align-items: center; gap: 18px; }
+    .edu-logo { width: 50px; height: 50px; flex-shrink: 0; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: var(--r); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 800; font-size: 0.82rem; color: var(--accent); }
+    .edu-meta h3 { font-family: var(--fh); font-size: 1.02rem; font-weight: 700; color: var(--t1); }
+    .edu-meta p { font-size: 0.8rem; color: var(--t2); margin-top: 3px; }
+    .years-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .year-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 18px; transition: border-color 0.2s; }
+    .year-card:hover { border-color: var(--border2); }
+    .year-tag { display: inline-block; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 3px 8px; border-radius: 6px; margin-bottom: 10px; }
+    .year-card h4 { font-family: var(--fh); font-size: 0.9rem; font-weight: 700; color: var(--t1); margin-bottom: 10px; }
+    .year-card ul { list-style: none; }
+    .year-card li { font-size: 0.79rem; color: var(--t2); padding: 4px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 6px; }
+    .year-card li:last-child { border-bottom: none; }
+    .year-card li::before { content: '—'; color: var(--t3); flex-shrink: 0; }
+    .year-card li b { color: var(--t1); font-weight: 500; }
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .proj-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+    .proj-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .proj-card.feat { border-color: var(--accent-border); }
+    .proj-card.feat:hover { border-color: rgba(0,229,160,0.45); }
+    .proj-top { padding: 18px 18px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+    .proj-type { font-size: 0.69rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .feat-badge { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 8px; border-radius: 6px; }
+    .proj-body { padding: 14px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+    .proj-body h3 { font-family: var(--fh); font-size: 1.08rem; font-weight: 700; color: var(--t1); letter-spacing: -0.02em; margin-bottom: 8px; }
+    .proj-story { font-size: 0.83rem; color: var(--accent); font-style: italic; border-left: 2px solid var(--accent); padding-left: 11px; margin-bottom: 10px; line-height: 1.55; }
+    .proj-desc { font-size: 0.83rem; color: var(--t2); line-height: 1.65; margin-bottom: 14px; flex: 1; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .tech-tag { font-size: 0.69rem; font-weight: 500; color: var(--t2); background: var(--bg3); border: 1px solid var(--border); padding: 3px 8px; border-radius: 6px; }
+    .proj-link { display: inline-flex; align-items: center; gap: 5px; font-size: 0.81rem; font-weight: 600; color: var(--accent); transition: gap 0.2s; }
+    .proj-link:hover { gap: 9px; }
+    .proj-link::after { content: '\2192'; }
+    .more-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+    .more-card:hover { border-color: var(--border2); transform: translateY(-1px); }
+    .more-card .proj-type { margin-bottom: 7px; }
+    .more-card h4 { font-family: var(--fh); font-size: 0.9rem; font-weight: 700; color: var(--t1); margin-bottom: 7px; }
+    .more-card p { font-size: 0.8rem; color: var(--t2); line-height: 1.6; margin-bottom: 12px; flex: 1; }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 36px; padding: 26px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); }
+    .sri { text-align: center; }
+    .srin { font-family: var(--fh); font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
+    .srl { font-size: 0.74rem; color: var(--t2); margin-top: 4px; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 10px; }
+    .cert-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 13px 17px; display: flex; align-items: center; gap: 13px; transition: border-color 0.2s; }
+    .cert-card:hover { border-color: var(--accent-border); }
+    .cert-card img { width: 30px; height: 30px; flex-shrink: 0; }
+    .cert-name { font-size: 0.86rem; font-weight: 500; color: var(--t1); }
+    .cert-iss { font-size: 0.73rem; color: var(--t3); }
+    .cert-arr { margin-left: auto; color: var(--t3); font-size: 1rem; transition: color 0.2s, transform 0.2s; }
+    .cert-card:hover .cert-arr { color: var(--accent); transform: translateX(3px); }
+    .resume-cta { margin-top: 36px; padding: 26px; background: var(--accent-dim); border: 1px solid var(--accent-border); border-radius: var(--rl); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .resume-cta h3 { font-family: var(--fh); font-size: 1.08rem; font-weight: 700; color: var(--t1); }
+    .resume-cta p { font-size: 0.83rem; color: var(--t2); margin-top: 4px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-intro { font-size: 0.98rem; color: var(--t2); line-height: 1.75; margin-bottom: 22px; }
+    .contact-items { display: flex; flex-direction: column; gap: 9px; }
+    .contact-lnk { display: flex; align-items: center; gap: 13px; padding: 13px 17px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); transition: border-color 0.2s; }
+    .contact-lnk:hover { border-color: var(--accent-border); }
+    .contact-ico { width: 34px; height: 34px; background: var(--bg3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; color: var(--t2); }
+    .clbl { font-size: 0.69rem; color: var(--t3); }
+    .cval { font-size: 0.86rem; font-weight: 500; color: var(--t1); }
+    .avail-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rl); padding: 26px; }
+    .avail-top { display: flex; align-items: center; gap: 6px; font-size: 0.71rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    .avail-card h3 { font-family: var(--fh); font-size: 1.2rem; font-weight: 700; color: var(--t1); letter-spacing: -0.02em; margin-bottom: 10px; }
+    .avail-card p { font-size: 0.86rem; color: var(--t2); line-height: 1.65; margin-bottom: 18px; }
+    .role-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .role-tag { font-size: 0.76rem; font-weight: 500; color: var(--t2); background: var(--bg3); border: 1px solid var(--border); padding: 4px 10px; border-radius: 8px; }
+    .footer { padding: 22px 0; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .footer span, .footer a { font-size: 0.77rem; color: var(--t3); }
+    .footer a { transition: color 0.2s; }
+    .footer a:hover { color: var(--accent); }
     @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        background: rgba(31, 41, 55, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        width: 250px;
-        padding: 2rem;
-        border-radius: 20px 0 0 20px;
-        transition: right 0.3s ease;
-        gap: 1rem;
-        border: 1px solid rgba(255,255,255,0.1);
-      }
-
-      .light-mode .nav-links {
-        background: rgba(255,255,255,0.95);
-        border: 1px solid rgba(255,255,255,0.5);
-      }
-
-      .nav-links.active { right: 0; }
-      .menu-toggle { display: block; }
-      .about-content { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-      .projects-grid, .cert-grid { grid-template-columns: 1fr; }
-      .social-links { flex-direction: column; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px; gap: 2px; z-index: 99; }
+      .hamburger { display: flex; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .featured-grid, .more-grid, .years-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .hero-visual { display: none; }
+      .resume-cta { flex-direction: column; align-items: flex-start; }
+      .footer { flex-direction: column; gap: 6px; text-align: center; }
+      .container { padding: 0 18px; }
+      .nav-inner { padding: 13px 18px; }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo" onclick="showPage('home')">Portfolio</div>
-      <button class="menu-toggle" id="menuToggle">☰</button>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">AN<span>.</span></div>
       <ul class="nav-links" id="navLinks">
-        <li><a onclick="showPage('home')" data-page="home">Home</a></li>
-        <li><a onclick="showPage('about')" data-page="about">About</a></li>
-        <li><a onclick="showPage('skills')" data-page="skills">Skills</a></li>
-        <li><a onclick="showPage('education')" data-page="education">Education</a></li>
-        <li><a onclick="showPage('projects')" data-page="projects">Projects</a></li>
-        <li><a onclick="showPage('certifications')" data-page="certifications">Certifications</a></li>
-        <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+        <li><a href="#" onclick="go('home',event)" data-p="home" class="active">Home</a></li>
+        <li><a href="#" onclick="go('about',event)" data-p="about">About</a></li>
+        <li><a href="#" onclick="go('skills',event)" data-p="skills">Skills</a></li>
+        <li><a href="#" onclick="go('education',event)" data-p="education">Education</a></li>
+        <li><a href="#" onclick="go('projects',event)" data-p="projects">Projects</a></li>
+        <li><a href="#" onclick="go('certifications',event)" data-p="certifications">Certifications</a></li>
+        <li><a href="#" onclick="go('contact',event)" data-p="contact">Contact</a></li>
       </ul>
-      <div class="nav-actions">
-        <button id="darkToggle">🌙</button>
+      <div class="nav-right">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">&#9788;</button>
+        <button class="icon-btn hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
       </div>
     </div>
   </nav>
 
-  <!-- Home -->
   <div id="home" class="page active">
-    <div class="hero">
-      <h1>Hi, I'm Alphiosjunior Iviwe Ngqele</h1>
-      <p>Computer Engineering Graduate | Cloud & DevOps Engineer | AI Builder</p>
-      <p>I build real things — serverless APIs, AI-powered apps, cloud infrastructure, and CI/CD pipelines that solve actual problems.</p>
-      <div class="cta-buttons">
-        <button class="btn btn-primary" onclick="showPage('projects')">View My Work</button>
-        <button class="btn btn-secondary" onclick="showPage('contact')">Get In Touch</button>
-      </div>
-    </div>
     <div class="container">
-      <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">Passionate about solving real-world problems with technology — specializing in cloud computing, DevOps automation, and AI-enabled systems.</p>
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge"><span class="hero-dot"></span>Open to work</div>
+            <h1>Hi, I'm <em>Alphiosjunior<br>Iviwe Ngqele.</em></h1>
+            <p class="hero-sub">Computer Engineering graduate from CPUT. I build real things — serverless APIs, AI-powered apps, cloud infrastructure, and CI/CD pipelines that solve actual problems.</p>
+            <div class="hero-btns">
+              <button class="btn-primary" onclick="go('projects',event)">View my work</button>
+              <button class="btn-ghost" onclick="go('contact',event)">Get in touch</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="terminal">
+              <div class="term-bar">
+                <div class="tdot" style="background:#FF5F57"></div>
+                <div class="tdot" style="background:#FEBC2E"></div>
+                <div class="tdot" style="background:#28C840"></div>
+                <div class="term-title">hireiq &mdash; terraform apply</div>
+              </div>
+              <div class="term-body">
+                <div class="tr"><span class="tp">$</span><span class="tc">&nbsp;terraform init</span></div>
+                <div class="to">Initializing provider plugins...</div>
+                <div class="ts">+ provider aws 5.31.0 installed</div>
+                <br>
+                <div class="tr"><span class="tp">$</span><span class="tc">&nbsp;terraform apply -auto-approve</span></div>
+                <div class="to">aws_lambda_function.hireiq_ai: Creating...</div>
+                <div class="to">aws_api_gateway_rest_api.main: Creating...</div>
+                <div class="to">aws_dynamodb_table.applications: Creating...</div>
+                <br>
+                <div class="ts">Apply complete! 7 resources added.</div>
+                <br>
+                <div class="tr"><span class="tp">$</span><span class="tc">&nbsp;curl $API_URL/health</span></div>
+                <div class="ts">{"status":"ok","region":"af-south-1"}</div>
+                <br>
+                <div class="tr"><span class="tp">$</span><span class="tcursor"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- About -->
   <div id="about" class="page">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>I am a Computer Engineering graduate from CPUT with hands-on experience building cloud infrastructure, DevOps pipelines, and AI-powered applications.</p>
-          <p>I don't just learn tools — I build with them. From a serverless Load Shedding API deployed in Cape Town's AWS region, to an AI career coach built with Java Spring Boot, Python FastAPI, and Llama 3.3 70b, I focus on shipping real projects that solve real problems.</p>
-          <p>Open to junior roles in Cloud Engineering, DevOps, Software Development, and Cybersecurity where I can contribute, grow, and keep building.</p>
-        </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">2025</div>
-            <div class="stat-label">Graduation Year</div>
+      <div class="section">
+        <div class="sec-label">About me</div>
+        <h2 class="sec-title">Engineer by degree,<br>builder by nature.</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I'm a Computer Engineering graduate from CPUT with hands-on experience building cloud infrastructure, DevOps pipelines, and AI-powered applications.</p>
+            <p>I don't just learn tools — I build with them. From a serverless Load Shedding API deployed in Cape Town's AWS region, to HireIQ — an AI career coach built with Java Spring Boot, Python FastAPI, and Llama 3.3 70b — I focus on shipping real projects that solve real problems.</p>
+            <p>Open to junior roles in Cloud Engineering, DevOps, Software Development, and Cybersecurity where I can contribute, grow, and keep building.</p>
           </div>
-          <div class="stat-card">
-            <div class="stat-number">12+</div>
-            <div class="stat-label">Skills Mastered</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Certifications</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">7+</div>
-            <div class="stat-label">Live Projects</div>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-num">2025</div><div class="stat-lbl">Graduation year, CPUT</div></div>
+            <div class="stat-card"><div class="stat-num">12+</div><div class="stat-lbl">Technologies in active use</div></div>
+            <div class="stat-card"><div class="stat-num">7+</div><div class="stat-lbl">Live projects shipped</div></div>
+            <div class="stat-card"><div class="stat-num">5+</div><div class="stat-lbl">Industry certifications</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Skills -->
   <div id="skills" class="page">
     <div class="container">
-      <h2 class="section-title">Skills & Technologies</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/python.png" alt="Python"/>
-          <span>Python</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java"/>
-          <span>Java</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/typescript.png" alt="TypeScript"/>
-          <span>TypeScript</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/react-native.png" alt="React"/>
-          <span>React</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/fluency/48/sql.png" alt="SQL"/>
-          <span>SQL</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/amazon-web-services.png" alt="AWS"/>
-          <span>AWS Cloud</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/terraform.png" alt="Terraform"/>
-          <span>Terraform</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/docker.png" alt="Docker"/>
-          <span>Docker</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/?size=160&id=oaoTa6nA7qv3&format=png" alt="IoT"/>
-          <span>IoT & Embedded</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/cyber-security.png" alt="Security"/>
-          <span>Cybersecurity</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="AI"/>
-          <span>AI / LLMs</span>
-        </div>
-        <div class="skill-card">
-          <img src="https://img.icons8.com/glyph-neue/48/github.png" alt="GitHub"/>
-          <span>GitHub Actions</span>
+      <div class="section">
+        <div class="sec-label">Skills &amp; technologies</div>
+        <h2 class="sec-title">What I build with.</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/python.png" alt="Python"><span>Python</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java"><span>Java</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/typescript.png" alt="TypeScript"><span>TypeScript</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/react-native.png" alt="React"><span>React</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/fluency/48/sql.png" alt="SQL"><span>SQL</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/amazon-web-services.png" alt="AWS"><span>AWS Cloud</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/terraform.png" alt="Terraform"><span>Terraform</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/docker.png" alt="Docker"><span>Docker</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/?size=160&id=oaoTa6nA7qv3&format=png" alt="IoT"><span>IoT &amp; Embedded</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/cyber-security.png" alt="Cybersecurity"><span>Cybersecurity</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="AI"><span>AI / LLMs</span></div>
+          <div class="skill-card"><img src="https://img.icons8.com/color/48/github--v1.png" alt="GitHub Actions"><span>GitHub Actions</span></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Education -->
   <div id="education" class="page">
     <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <h3 style="font-size: 1.5rem; color: var(--primary);">Cape Peninsula University of Technology</h3>
-        <p style="font-size: 1.1rem; opacity: 0.8;">Bachelor of Engineering Technology in Computer Engineering</p>
-        <p style="font-size: 1rem; opacity: 0.7;">Completed: 2025</p>
-      </div>
-      <div class="edu-timeline">
-        <div class="edu-item">
-          <h3>Year 1 - Foundation</h3>
-          <ul>
-            <li>Electrical Engineering Principles I</li>
-            <li>Computer Architecture I</li>
-            <li>Electronics I</li>
-            <li>Physics I</li>
-            <li>Engineering Mathematics I</li>
-            <li>Software Design I</li>
-          </ul>
+      <div class="section">
+        <div class="sec-label">Education</div>
+        <h2 class="sec-title">Where it started.</h2>
+        <div class="edu-header">
+          <div class="edu-logo">CPUT</div>
+          <div class="edu-meta">
+            <h3>Cape Peninsula University of Technology</h3>
+            <p>Bachelor of Engineering Technology in Computer Engineering &nbsp;&middot;&nbsp; Completed 2025</p>
+          </div>
         </div>
-        <div class="edu-item">
-          <h3>Year 2 - Core Development</h3>
-          <ul>
-            <li>Computer Graphics II</li>
-            <li>Engineering Communication I</li>
-            <li>Engineering Ethics I</li>
-            <li>Engineering Mathematics II</li>
-            <li>Signal Processing II</li>
-            <li>Software Design II</li>
-            <li>Digital Systems II</li>
-            <li>Operating Systems II</li>
-          </ul>
-        </div>
-        <div class="edu-item">
-          <h3>Year 3 - Specialization (Final Year)</h3>
-          <ul>
-            <li>Database Systems III</li>
-            <li>Electronic Communications III</li>
-            <li>Embedded Systems III</li>
-            <li>Network Systems III</li>
-            <li>Industrial Computing Design III</li>
-            <li><strong>Capstone Project:</strong> AI Smart Home Automation – AI-based face monitoring system with IoT integration and a voice-controlled mobile app for light & temperature control.</li>
-          </ul>
+        <div class="years-grid">
+          <div class="year-card">
+            <div class="year-tag">Year 1</div>
+            <h4>Foundation</h4>
+            <ul>
+              <li>Electrical Engineering Principles I</li>
+              <li>Computer Architecture I</li>
+              <li>Electronics I</li>
+              <li>Physics I</li>
+              <li>Engineering Mathematics I</li>
+              <li>Software Design I</li>
+            </ul>
+          </div>
+          <div class="year-card">
+            <div class="year-tag">Year 2</div>
+            <h4>Core development</h4>
+            <ul>
+              <li>Computer Graphics II</li>
+              <li>Engineering Communication I</li>
+              <li>Signal Processing II</li>
+              <li>Software Design II</li>
+              <li>Digital Systems II</li>
+              <li>Operating Systems II</li>
+              <li>Engineering Mathematics II</li>
+            </ul>
+          </div>
+          <div class="year-card">
+            <div class="year-tag">Year 3</div>
+            <h4>Specialisation</h4>
+            <ul>
+              <li>Database Systems III</li>
+              <li>Electronic Communications III</li>
+              <li>Embedded Systems III</li>
+              <li>Network Systems III</li>
+              <li>Industrial Computing Design III</li>
+              <li><b>Capstone: AI Smart Home Automation — face monitoring, IoT, voice control</b></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Projects -->
   <div id="projects" class="page">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
-
-      <!-- FEATURED PROJECTS -->
-      <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em;">⭐ Featured Projects</h3>
-      <div class="projects-grid" style="margin-bottom: 3rem;">
-
-        <!-- HireIQ - FEATURED -->
-        <div class="project-card featured">
-          <div class="project-header">
-            <h3>🤖 HireIQ <span class="featured-badge">Featured</span></h3>
-            <div style="font-size: 0.9rem; opacity: 0.9;">AI-Powered Career Coach for Junior Developers</div>
-          </div>
-          <div class="project-body">
-            <p class="project-story">"I built this because I was struggling with the same problems it solves — applying to jobs without knowing how well my CV matched, failing interviews without structured preparation, and losing track of where I had applied."</p>
-            <p><strong>What it does:</strong> Analyzes your CV against a job description with a match score, generates personalized technical and behavioural interview questions, and tracks all applications with match scores saved per application.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Java Spring Boot 3.5</span>
-              <span class="tech-tag">Python FastAPI</span>
-              <span class="tech-tag">Groq API</span>
-              <span class="tech-tag">Llama 3.3 70b</span>
-              <span class="tech-tag">Spring Data JPA</span>
+      <div class="section">
+        <div class="sec-label">Projects</div>
+        <h2 class="sec-title">Real things I've shipped.</h2>
+        <div class="featured-grid">
+          <div class="proj-card feat">
+            <div class="proj-top">
+              <div class="proj-type">AI Application</div>
+              <div class="feat-badge">Featured</div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/Alphiosjunior/hireiq" target="_blank" class="project-link">View on GitHub →</a>
+            <div class="proj-body">
+              <h3>HireIQ</h3>
+              <p class="proj-story">"I built this because I was struggling with the same problems it solves — applying to jobs without knowing how well my CV matched, failing interviews without structured preparation, and losing track of where I had applied."</p>
+              <p class="proj-desc">AI-powered career coach for junior developers. Analyses your CV against a job description with a match score, generates personalised interview questions, and tracks all your applications in one place.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Spring Boot 3.5</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Groq API</span><span class="tech-tag">Llama 3.3 70b</span><span class="tech-tag">Spring Data JPA</span>
+              </div>
+              <a href="https://github.com/Alphiosjunior/hireiq" target="_blank" class="proj-link">View on GitHub</a>
             </div>
           </div>
-        </div>
-
-        <!-- Job Application Tracker - FEATURED -->
-        <div class="project-card featured">
-          <div class="project-header">
-            <h3>🗂️ Job Application Tracker <span class="featured-badge">Featured</span></h3>
-            <div style="font-size: 0.9rem; opacity: 0.9;">Full-Stack Serverless App — Deployed in Cape Town</div>
-          </div>
-          <div class="project-body">
-            <p>A production-ready serverless job tracking system with a glassmorphic UI, real-time statistics dashboard, dark/light mode, and full CRUD REST API. Deployed in <strong>af-south-1 (Cape Town)</strong> on AWS Free Tier.</p>
-            <p><strong>Features:</strong> Track applications by company, position & status · Real-time KPI dashboard · 5 REST API endpoints · 100% AWS Free Tier eligible</p>
-            <div class="tech-stack">
-              <span class="tech-tag">AWS Lambda</span>
-              <span class="tech-tag">API Gateway</span>
-              <span class="tech-tag">DynamoDB</span>
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">CSS Glassmorphism</span>
+          <div class="proj-card feat">
+            <div class="proj-top">
+              <div class="proj-type">Serverless &middot; AWS</div>
+              <div class="feat-badge">Featured</div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/Alphiosjunior/job-application-tracker" target="_blank" class="project-link">View on GitHub →</a>
+            <div class="proj-body">
+              <h3>Job Application Tracker</h3>
+              <p class="proj-desc">Production-ready serverless job tracking system with a real-time statistics dashboard and full CRUD REST API. Deployed in <strong>af-south-1 (Cape Town)</strong> on AWS Free Tier.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">AWS Lambda</span><span class="tech-tag">API Gateway</span><span class="tech-tag">DynamoDB</span><span class="tech-tag">Terraform</span><span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span>
+              </div>
+              <a href="https://github.com/Alphiosjunior/job-application-tracker" target="_blank" class="proj-link">View on GitHub</a>
             </div>
           </div>
         </div>
-
-      </div>
-
-      <!-- OTHER PROJECTS -->
-      <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em;">🚀 More Projects</h3>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>⚡ Serverless Load Shedding API</h3>
-          </div>
-          <div class="project-body">
+        <div class="more-grid">
+          <div class="more-card">
+            <div class="proj-type">Serverless API</div>
+            <h4>Load Shedding API</h4>
             <p>Production-ready serverless API for South African load shedding schedules. REST endpoints, DynamoDB persistence, zero server management.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">AWS Lambda</span>
-              <span class="tech-tag">API Gateway</span>
-              <span class="tech-tag">DynamoDB</span>
-              <span class="tech-tag">Terraform</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Alphiosjunior/terraform-serverless-loadshedding-api" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
+            <div class="tech-stack"><span class="tech-tag">Lambda</span><span class="tech-tag">DynamoDB</span><span class="tech-tag">Terraform</span></div>
+            <a href="https://github.com/Alphiosjunior/terraform-serverless-loadshedding-api" target="_blank" class="proj-link">GitHub</a>
+          </div>
+          <div class="more-card">
+            <div class="proj-type">Containerisation</div>
+            <h4>ECS Fargate App</h4>
+            <p>Dockerized Flask app on AWS ECS Fargate with load balancing, health checks, and CloudWatch monitoring. Deployed in 13 minutes.</p>
+            <div class="tech-stack"><span class="tech-tag">Docker</span><span class="tech-tag">ECS Fargate</span><span class="tech-tag">Terraform</span></div>
+            <a href="https://github.com/alphiosjunior/terraform-ecs-fargate-flask" target="_blank" class="proj-link">GitHub</a>
+          </div>
+          <div class="more-card">
+            <div class="proj-type">Data Analysis</div>
+            <h4>Amazon Fulfillment Analytics</h4>
+            <p>Analysed 100,000+ orders to identify operational bottlenecks. Found 15% delivery time reduction — R288K in annual savings.</p>
+            <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span></div>
+            <a href="https://github.com/Alphiosjunior/amazon-fulfillment-analytics" target="_blank" class="proj-link">GitHub</a>
+          </div>
+          <div class="more-card">
+            <div class="proj-type">DevOps</div>
+            <h4>CI/CD Pipeline</h4>
+            <p>Fully automated pipeline — one git push triggers testing, building, and full infrastructure deployment via GitHub Actions and Terraform.</p>
+            <div class="tech-stack"><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Terraform</span><span class="tech-tag">AWS</span></div>
+            <a href="https://github.com/alphiosjunior/terraform-s3-cloudfront-website" target="_blank" class="proj-link">GitHub</a>
+          </div>
+          <div class="more-card">
+            <div class="proj-type">Infrastructure</div>
+            <h4>AWS Infrastructure IaC</h4>
+            <p>Full IaC deployment of AWS cloud infrastructure — EC2, S3, and security groups automated with Terraform from scratch.</p>
+            <div class="tech-stack"><span class="tech-tag">Terraform</span><span class="tech-tag">EC2</span><span class="tech-tag">S3</span></div>
+            <a href="https://github.com/alphiosjunior/terraform-aws-infrastructure" target="_blank" class="proj-link">GitHub</a>
+          </div>
+          <div class="more-card">
+            <div class="proj-type">IoT / Embedded</div>
+            <h4>Smart Home Automation</h4>
+            <p>Arduino + Python smart home system with cloud analytics for real-time energy optimisation and remote control — final year capstone.</p>
+            <div class="tech-stack"><span class="tech-tag">Arduino</span><span class="tech-tag">Python</span><span class="tech-tag">IoT</span></div>
+            <a href="https://github.com/alphiosjunior" target="_blank" class="proj-link">GitHub</a>
           </div>
         </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>🐳 Containerized App — ECS Fargate</h3>
-          </div>
-          <div class="project-body">
-            <p>Dockerized Flask app on AWS ECS Fargate with load balancing, health checks, and CloudWatch monitoring. Full infrastructure automation — deployed in 13 minutes.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">ECS Fargate</span>
-              <span class="tech-tag">CloudWatch</span>
-              <span class="tech-tag">Terraform</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/alphiosjunior/terraform-ecs-fargate-flask" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>📦 Amazon Fulfillment Analytics</h3>
-          </div>
-          <div class="project-body">
-            <p>Analyzed 100,000+ e-commerce orders to identify operational bottlenecks. Found 15% delivery time reduction potential with R288K annual cost savings.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Pandas</span>
-              <span class="tech-tag">Matplotlib</span>
-              <span class="tech-tag">Seaborn</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Alphiosjunior/amazon-fulfillment-analytics" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>🚀 CI/CD Pipeline — GitHub Actions</h3>
-          </div>
-          <div class="project-body">
-            <p>Fully automated CI/CD pipeline — one git push triggers automated testing, building, and full infrastructure deployment. Production-grade DevOps.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">GitHub Actions</span>
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">Docker</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/alphiosjunior/terraform-s3-cloudfront-website" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>🏗️ AWS Infrastructure Automation</h3>
-          </div>
-          <div class="project-body">
-            <p>Full IaC deployment of AWS cloud infrastructure — EC2 instances, S3 buckets, and security groups automated with Terraform from scratch.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">EC2</span>
-              <span class="tech-tag">S3</span>
-              <span class="tech-tag">AWS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/alphiosjunior/terraform-aws-infrastructure" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-header">
-            <h3>🏠 IoT Smart Home Automation</h3>
-          </div>
-          <div class="project-body">
-            <p>Arduino + Python smart home system integrated with cloud analytics for real-time energy optimization and remote control.</p>
-            <div class="tech-stack">
-              <span class="tech-tag">Arduino</span>
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">IoT</span>
-              <span class="tech-tag">Cloud Analytics</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/alphiosjunior" target="_blank" class="project-link">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Stats -->
-      <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(31,41,55,0.7); border-radius: 20px; backdrop-filter: blur(20px);">
-        <h3 style="color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">🎯 Project Statistics</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
-          <div>
-            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary);">7+</div>
-            <div style="opacity: 0.8;">Live Projects</div>
-          </div>
-          <div>
-            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary);">100K+</div>
-            <div style="opacity: 0.8;">Orders Analyzed</div>
-          </div>
-          <div>
-            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary);">12+</div>
-            <div style="opacity: 0.8;">AWS Services Used</div>
-          </div>
-          <div>
-            <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary);">R288K</div>
-            <div style="opacity: 0.8;">Annual Savings Identified</div>
-          </div>
+        <div class="stats-row">
+          <div class="sri"><div class="srin">7+</div><div class="srl">Live projects</div></div>
+          <div class="sri"><div class="srin">100K+</div><div class="srl">Orders analysed</div></div>
+          <div class="sri"><div class="srin">12+</div><div class="srl">AWS services used</div></div>
+          <div class="sri"><div class="srin">R288K</div><div class="srl">Annual savings identified</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Certifications -->
   <div id="certifications" class="page">
     <div class="container">
-      <h2 class="section-title">Certifications</h2>
-      <div class="cert-grid">
-        <div class="cert-card">
-          <img src="https://img.icons8.com/color/48/amazon-web-services.png" alt="AWS"/>
-          <a href="https://www.credly.com/badges/213b9174-88a4-49f5-8ed7-fd53b496d821/linked_in_profile" target="_blank">AWS Educate Cloud 101</a>
+      <div class="section">
+        <div class="sec-label">Certifications</div>
+        <h2 class="sec-title">Verified credentials.</h2>
+        <div class="cert-grid">
+          <a href="https://www.credly.com/badges/213b9174-88a4-49f5-8ed7-fd53b496d821/linked_in_profile" target="_blank" class="cert-card">
+            <img src="https://img.icons8.com/color/48/amazon-web-services.png" alt="AWS">
+            <div><div class="cert-name">AWS Educate Cloud 101</div><div class="cert-iss">Amazon Web Services</div></div>
+            <span class="cert-arr">&#8594;</span>
+          </a>
+          <a href="https://www.credly.com/badges/89c536d3-2c18-4dc8-aa55-1580f102b92e/linked_in_profile" target="_blank" class="cert-card">
+            <img src="https://img.icons8.com/fluency/48/network.png" alt="Cisco">
+            <div><div class="cert-name">Cisco Networking Basics</div><div class="cert-iss">Cisco</div></div>
+            <span class="cert-arr">&#8594;</span>
+          </a>
+          <a href="https://www.credly.com/badges/8507009c-83da-4545-b499-eb6d9633b937" target="_blank" class="cert-card">
+            <img src="https://img.icons8.com/color/48/cyber-security.png" alt="Cybersecurity">
+            <div><div class="cert-name">Cisco Cybersecurity</div><div class="cert-iss">Cisco</div></div>
+            <span class="cert-arr">&#8594;</span>
+          </a>
+          <a href="https://www.credly.com/badges/b31b62ff-1505-4b75-b36e-a9a4d0bdee00/linked_in_profile" target="_blank" class="cert-card">
+            <img src="https://img.icons8.com/fluency/48/security-checked.png" alt="ISC2">
+            <div><div class="cert-name">ISC2 Candidate</div><div class="cert-iss">ISC2</div></div>
+            <span class="cert-arr">&#8594;</span>
+          </a>
+          <a href="https://www.linkedin.com/learning/certificates/907b6b32d9f47f3ebe401d44a6290d1c89910947814bc0c93ae5fa07449471eb" target="_blank" class="cert-card">
+            <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn">
+            <div><div class="cert-name">Cybersecurity Awareness</div><div class="cert-iss">LinkedIn Learning</div></div>
+            <span class="cert-arr">&#8594;</span>
+          </a>
         </div>
-        <div class="cert-card">
-          <img src="https://img.icons8.com/fluency/48/network.png" alt="Cisco"/>
-          <a href="https://www.credly.com/badges/89c536d3-2c18-4dc8-aa55-1580f102b92e/linked_in_profile" target="_blank">Cisco Networking Basics</a>
+        <div class="resume-cta">
+          <div>
+            <h3>Want the full picture?</h3>
+            <p>Download my ATS-optimised CV with all experience and credentials.</p>
+          </div>
+          <a href="Alphiosjunior_Ngqele_ATS_CV.pdf" target="_blank" class="btn-primary">Download CV</a>
         </div>
-        <div class="cert-card">
-          <img src="https://img.icons8.com/color/48/cyber-security.png" alt="Security"/>
-          <a href="https://www.credly.com/badges/8507009c-83da-4545-b499-eb6d9633b937" target="_blank">Cisco Cybersecurity</a>
-        </div>
-        <div class="cert-card">
-          <img src="https://img.icons8.com/fluency/48/security-checked.png" alt="ISC2"/>
-          <a href="https://www.credly.com/badges/b31b62ff-1505-4b75-b36e-a9a4d0bdee00/linked_in_profile" target="_blank">ISC2 Candidate</a>
-        </div>
-        <div class="cert-card">
-          <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn"/>
-          <a href="https://www.linkedin.com/learning/certificates/907b6b32d9f47f3ebe401d44a6290d1c89910947814bc0c93ae5fa07449471eb" target="_blank">LinkedIn Cybersecurity Awareness</a>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="Alphiosjunior_Ngqele_ATS_CV.pdf" target="_blank" class="btn btn-primary" style="display:inline-block;">Download My Resume</a>
       </div>
     </div>
   </div>
 
-  <!-- Contact -->
   <div id="contact" class="page">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-content">
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Let's connect! Open to junior roles in Cloud, DevOps, Software Development & Cybersecurity.</p>
-        <div class="contact-info">
-          <div class="contact-item">
-            <strong>Email:</strong><br>
-            <a href="mailto:ngqeleiviwe@gmail.com">ngqeleiviwe@gmail.com</a>
+      <div class="section">
+        <div class="sec-label">Contact</div>
+        <h2 class="sec-title">Let's build something.</h2>
+        <div class="contact-grid">
+          <div>
+            <p class="contact-intro">I'm open to junior roles in Cloud Engineering, DevOps, Software Development, and Cybersecurity. If you're working on something interesting — or hiring — let's talk.</p>
+            <div class="contact-items">
+              <a href="mailto:ngqeleiviwe@gmail.com" class="contact-lnk">
+                <div class="contact-ico">&#9993;</div>
+                <div><div class="clbl">Email</div><div class="cval">ngqeleiviwe@gmail.com</div></div>
+              </a>
+              <a href="tel:0834855096" class="contact-lnk">
+                <div class="contact-ico">&#9990;</div>
+                <div><div class="clbl">Phone</div><div class="cval">083 485 5096</div></div>
+              </a>
+              <a href="https://github.com/alphiosjunior" target="_blank" class="contact-lnk">
+                <div class="contact-ico" style="font-size:0.75rem;font-weight:700;">GH</div>
+                <div><div class="clbl">GitHub</div><div class="cval">@alphiosjunior</div></div>
+              </a>
+              <a href="https://www.linkedin.com/in/alphiosjunior-iviwe-ngqele-8b510127a/" target="_blank" class="contact-lnk">
+                <div class="contact-ico" style="font-size:0.75rem;font-weight:700;">in</div>
+                <div><div class="clbl">LinkedIn</div><div class="cval">Alphiosjunior Iviwe Ngqele</div></div>
+              </a>
+            </div>
           </div>
-          <div class="contact-item">
-            <strong>Phone:</strong><br>
-            <a href="tel:0834855096">083 485 5096</a>
-          </div>
-          <div class="social-links">
-            <a href="https://github.com/alphiosjunior" target="_blank">
-              <img src="https://img.icons8.com/glyph-neue/32/ffffff/github.png" alt="GitHub"/>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/alphiosjunior-iviwe-ngqele-8b510127a/" target="_blank">
-              <img src="https://img.icons8.com/color/32/linkedin.png" alt="LinkedIn"/>
-              LinkedIn
-            </a>
+          <div class="avail-card">
+            <div class="avail-top"><span class="avail-dot"></span>Available now</div>
+            <h3>Open to junior roles in South Africa and remote.</h3>
+            <p>Based in South Africa. Happy to work on-site in Cape Town, remotely across Africa, or internationally via remote contracts.</p>
+            <div class="role-tags">
+              <span class="role-tag">Cloud Engineering</span>
+              <span class="role-tag">DevOps</span>
+              <span class="role-tag">Software Development</span>
+              <span class="role-tag">Cybersecurity</span>
+              <span class="role-tag">AI / ML Engineering</span>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="footer">
+        <span>&#169; 2026 Alphiosjunior Iviwe Ngqele. All rights reserved.</span>
+        <a href="https://github.com/alphiosjunior" target="_blank">github.com/alphiosjunior</a>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p>© 2026 Alphiosjunior Ngqele. All rights reserved.</p>
-  </footer>
-
   <script>
-    const body = document.body;
-    const darkToggle = document.getElementById('darkToggle');
+    var themeBtn = document.getElementById('themeBtn');
+    var hamburger = document.getElementById('hamburger');
+    var navLinks = document.getElementById('navLinks');
 
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-      body.classList.add('light-mode');
-      darkToggle.textContent = '🌙';
-    } else {
-      darkToggle.textContent = '☀️';
-      if (!currentTheme) localStorage.setItem('theme', 'dark');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+      themeBtn.innerHTML = '&#9789;';
     }
 
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
-      const activeLink = document.querySelector(`[data-page="${pageId}"]`);
-      if (activeLink) activeLink.classList.add('active');
-      document.getElementById('navLinks').classList.remove('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    darkToggle.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      const isLight = body.classList.contains('light-mode');
-      darkToggle.textContent = isLight ? '🌙' : '☀️';
+    themeBtn.addEventListener('click', function() {
+      document.body.classList.toggle('light');
+      var isLight = document.body.classList.contains('light');
+      themeBtn.innerHTML = isLight ? '&#9789;' : '&#9788;';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
 
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.nav-container')) navLinks.classList.remove('active');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
     });
 
-    document.querySelector('[data-page="home"]').classList.add('active');
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-inner')) {
+        navLinks.classList.remove('open');
+      }
+    });
+
+    function go(id, e) {
+      if (e) e.preventDefault();
+      var pages = document.querySelectorAll('.page');
+      var links = document.querySelectorAll('.nav-links a');
+      for (var i = 0; i < pages.length; i++) { pages[i].classList.remove('active'); }
+      for (var i = 0; i < links.length; i++) { links[i].classList.remove('active'); }
+      document.getElementById(id).classList.add('active');
+      var active = document.querySelector('[data-p="' + id + '"]');
+      if (active) active.classList.add('active');
+      navLinks.classList.remove('open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
