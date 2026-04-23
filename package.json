@@ -1,0 +1,27 @@
+{
+  "name": "4.3-html-porfolio-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alphiosjunior/portfolio2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alphiosjunior/portfolio2.0/issues"
+  },
+  "homepage": "https://github.com/Alphiosjunior/portfolio2.0#readme",
+  "dependencies": {
+    "aws-rum-web": "^2.1.0"
+  },
+  "devDependencies": {
+    "vite": "^8.0.10"
+  }
+}
