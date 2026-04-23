@@ -14,3 +14,10 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+customRules:
+  - source: </^(home|about|skills|education|projects|certifications|documents|contact)$/>  
+    target: /index.html
+    status: '200'
+  - source: /<*>
+    target: /index.html
+    status: '200'
