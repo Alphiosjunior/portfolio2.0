@@ -15,6 +15,9 @@ frontend:
     paths:
       - node_modules/**/*
 customRules:
+  - source: /documents/<*>
+    target: /documents/<*>
+    status: '200'
   - source: </^(home|about|skills|education|projects|certifications|documents|contact)$/>  
     target: /index.html
     status: '200'
